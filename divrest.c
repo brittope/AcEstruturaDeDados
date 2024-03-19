@@ -1,15 +1,18 @@
 #include <stdio.h>
 
-void div_and_rest(int num, int div, int *rest) {
+#include <stdio.h>
+
+void div_and_rest(int num, int div, int *quo, int *rest) {
     if (num < div) {
         *rest = num;
     } else {
-        div_and_rest(num - div, div, rest);
+        (*quo)++;
+        div_and_rest(num - div, div, quo, rest);
     }
 }
 
 int main() {
-    int num, div, rest = 0;
+    int num, div, quo = 0, rest = 0;
 
     printf("Digite um número: ");
     scanf("%d", &num);
@@ -17,8 +20,8 @@ int main() {
     printf("Digite um divisor: ");
     scanf("%d", &div);
 
-    div_and_rest(num, div, &rest);
-    printf("Divisão: %d\nResto: %d", rest, num - rest * div);
+    div_and_rest(num, div, &quo, &rest);
+    printf("Divisão: %d\nResto: %d", quo, rest);
 
     return 0;
 }
