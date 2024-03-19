@@ -4,7 +4,6 @@ void div_and_rest(int num, int div, int *rest) {
     if (num < div) {
         *rest = num;
     } else {
-        (*rest)++;
         div_and_rest(num - div, div, rest);
     }
 }
