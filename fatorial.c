@@ -1,8 +1,15 @@
 #include <stdio.h>
 
+unsigned long long factorial(int num) {
+    if (num == 0)
+        return 1;
+    else
+        return num * factorial(num - 1);
+}
+
 int main() {
     int num;
-    unsigned long long fat = 1;
+    unsigned long long fat;
 
     printf("Digite um número positivo: ");
     scanf("%d", &num);
@@ -10,9 +17,9 @@ int main() {
     if (num < 0) {
         printf("Erro! Fatorial de número negativo não existe.");
     } else {
-        for (int i = 1; i <= num; i++) {
-            fat *= i;
-        }
+        fat = factorial(num);
         printf("Fatorial de %d = %llu", num, fat);
     }
+
+    return 0;
 }
